@@ -43,15 +43,68 @@
     {
         color:aquamarine;
         font-size:32px;
+        
+    }
+
+    .hide
+    {
+        display: none;
+    }
+    h1{
+        color: white;
+    }
+
+    #up
+    {
+        margin-top: 0px;
+        position: relative;
+        top: 20px;
+
+    }
+
+    html,body{
+        margin: 0px;
     }
 </style>
 </head>
 <body>
+
     <div id="logo" dir="rtl">GraceCode</div>
-    <div class="center"><h1><a href="https://github.com/strongbasement/jsbasics/blob/master/readme.md#strings-surrounded-by-single-or-double-quotes-or-back-tick-quotes">Js-basics</a></h1>
+    <h1 onclick="droper()">Documentation <img src="drop-down-arrow.png" alt="" height="60px" width="40px"  id="up" class="ups"></h1>
+    <div class="center hide"><h1><a href="https://github.com/strongbasement/jsbasics/blob/master/readme.md#strings-surrounded-by-single-or-double-quotes-or-back-tick-quotes">Js-basics</a></h1>
         <h1><a href="https://github.com/strongbasement/mylearnings-nodejs-express/tree/main/running%20server%20using%20express">Node js basics</a></h1> 
        <h1><a href="https://github.com/strongbasement/form-to-google-sheets">contact form-1</a></h1></div>
-         
-    
+       <iframe id="video1" width="" height="" src="https://www.youtube.com/embed/tnUQo7Griak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+    <script>
+        let notclicked=true;
+        const docdiv=document.querySelector(".center");
+        var img=document.querySelector('#up');
+        const vid1=document.querySelector("#video1"); 
+        function resize()
+         {
+            var width=window.innerWidth;
+            var height=window.innerHeight;
+            vid1.setAttribute("width",width);
+            vid1.setAttribute("height",height);
+         }
+        function droper()
+        {
+          if(notclicked)
+          {
+            docdiv.classList.remove('hide');
+            
+            img.setAttribute("src","drop-up.png")
+            notclicked=false;
+          }
+          else{
+            docdiv.classList.add('hide');
+            
+            img.setAttribute("src","drop-down-arrow.png");
+            notclicked=true;
+            
+          }
+        }
+        resize();
+    </script>
 </body>
 </html>
